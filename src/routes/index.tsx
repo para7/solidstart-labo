@@ -1,5 +1,7 @@
 import { Title } from "@solidjs/meta";
 import Counter from "~/components/Counter";
+import { logHello } from "~/server/hello";
+import { css } from "~/styled-system/css";
 
 export default function Home() {
   return (
@@ -14,6 +16,18 @@ export default function Home() {
         </a>{" "}
         to learn how to build SolidStart apps.
       </p>
+
+      <div class={css({ fontSize: "2xl", fontWeight: "bold" })}>Hello 🐼!</div>
+
+      <button
+        type="button"
+        class="increment"
+        on:click={() => {
+          logHello("server action!!!");
+        }}
+      >
+        server action
+      </button>
     </main>
   );
 }
